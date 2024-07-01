@@ -5,6 +5,51 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* background-color:  var(--bg-light-subtle); */
+}
+
+.categoryHeader {
+  display: grid;
+  grid-template-columns: repeat(10, min-content);
+  grid-template-rows: 1fr 1fr;
+  grid-auto-flow: row;
+}
+
+.custom-tooltip {
+  --bs-tooltip-bg: var(--bs-gray-800);
+  --bs-tooltip-color: var(--bs-white);
+}
+
+.Legendary {
+  border: 2px solid #7416cc;
+}
+
+.Ascended {
+  border: 2px solid #cc5882;
+}
+
+.Exotic {
+  border: 2px solid #ff8800;
+}
+
+.Rare {
+  border: 2px solid #d8b735;
+}
+
+.Masterwork {
+  border: 2px solid #2eb33f;
+}
+
+.Fine {
+  border: 2px solid #315cb1;
+}
+
+.Basic {
+  border: 2px solid #cecece;
+}
+
+.Junk {
+  border: 2px solid gray;
 }
 
 code {
