@@ -1,6 +1,5 @@
 import { itemInfo } from "../data/ItemData";
 
-
 export default function Item( { item } ) {
     const id = item[0];
     let count = item[1];
@@ -17,7 +16,7 @@ export default function Item( { item } ) {
     return (
         <div 
         key={id+count}
-        className="list-group-item p-2 text-center"
+        className="list-group-item p-2 text-center itemTooltip"
         data-bs-toggle="tooltip" 
         data-bs-placement="top"
         data-bs-custom-class="custom-tooltip"
@@ -30,6 +29,8 @@ export default function Item( { item } ) {
     );
 };
 
+
+//SUPPORT FUNCTIONS
 function ItemName({ itemId }) {
     let itemName = `${itemId}: Unknown`;
     if(itemInfo[itemId]) {

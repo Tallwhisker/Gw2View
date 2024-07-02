@@ -1,13 +1,18 @@
+import { 
+  itemInfo, 
+  itemBlacklist, 
+  itemInformationStart 
+} from "../../data/ItemData";
+
 import { useState, useEffect } from "react";
-import { itemInfo, itemInformationStart } from "../../data/ItemData";
-import { accountInfo } from "../../data/AccountData";
+import { checkPermission, getApiKey } from "../../data/AccountData";
 import Category from "../../components/Category";
 import DropdownButton from "../../components/dropdownbutton";
 
 let characters = {};
 let characterList = [];
 export default function characterBags() {
-    if (!accountInfo.permissions.includes("characters")) {
+    if (checkPermission("characters")) {
         return <h1>No permission.</h1>;
     };
 
@@ -16,7 +21,7 @@ export default function characterBags() {
     
     useEffect(() => {
       characterList = [];
-        fetch(`${characterFetch}?access_token=${accountInfo.id}`)
+        fetch(`${characterFetch}?access_token=${getApiKey()}`)
         .then(res => {
           if (!res.ok) {
             throw Error(res.status);
@@ -92,7 +97,8 @@ export default function characterBags() {
                           ] 
                       );
     
-                      if(!itemInfo[item.id]) {
+                      //Check for unknown items not on blacklist
+                      if(!itemInfo[item.id] && !itemBlacklist.includes(item.id)) {
                           newItems.push(item.id);
                       };
                   } 

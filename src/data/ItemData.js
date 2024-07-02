@@ -1,10 +1,22 @@
 import { startData } from "./startData";
-let itemInfo = getStorageObject("itemInfo");
 
+let itemInfo = getStorageObject("itemInfo");
 
 if (! localStorage.getItem("itemInfo")) {
     coldStart();
 }
+// Because arenanet can't keep track of their own items, implement blacklist.
+const itemBlacklist = [
+    83855, //Pearl Impaler (SPEAR)
+    84192, //Pearl Impaler (SPEAR)
+    95208, //Demo Gear Loot Box
+    82258, //Unknown
+    95496, //Turtle Mount Unlock
+    101333, //Relic Chest (beta)
+    95201, //Demo Gear Loot Box
+    95195, //Demo Consumable Loot Box
+    95207 //Demo Gear Loot Box
+];
 
 function coldStart() {
     localStorage.setItem("itemInfo", JSON.stringify(startData));
@@ -16,12 +28,14 @@ function coldStart() {
 let itemQueueSignal = 0;
 const itemQueue = [];
 
+
+
 //Queue creator, any unknown items go to this function.
 async function itemInformationStart(inputArray) {
     inputArray.forEach(item => {
 
-        //If item is not already in queue, add it.
-        if(!itemQueue.includes(item)) {
+        //If item is not already in queue or blacklist, add it.
+        if(!itemQueue.includes(item) && !itemBlacklist.includes(item)) {
             itemQueue.push(item);
         };
     });
@@ -121,5 +135,6 @@ export {
     itemInfo,
     itemInformationStart,
     coldStart,
-    getStorageObject
+    getStorageObject,
+    itemBlacklist
 }

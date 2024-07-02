@@ -9,6 +9,7 @@ export default function Category({ catName, catArray, catID, containerClass="" }
         items.push(<Item item={ item } />)
     })
 
+
     let divOptions = "categoryHeader collapse show px-2 " + containerClass;
     return (
         <div id={catID} key={index+collapseID}>

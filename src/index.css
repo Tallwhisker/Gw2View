@@ -25,6 +25,10 @@ body {
   position: relative;
   padding-bottom: 6rem;
 }
+/* 
+form {
+  width: 300px;
+} */
 
 footer {
   position: absolute;

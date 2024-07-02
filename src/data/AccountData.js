@@ -1,35 +1,52 @@
-const accountURL = "https://wiki.guildwars2.com/wiki/API:2/account/materials"
-const authToken = localStorage.getItem("authToken");
+const tokenURL = "https://api.guildwars2.com/v2/tokeninfo?access_token="
+const accountURL = "https://api.guildwars2.com/v2/account?access_token="
+const tokenInfo = JSON.parse(localStorage.getItem("tokenInfo"));
 
-function getAccountData( token ) {
-
-  localStorage.setItem("authToken", token);
+function getApiKey() {
+  return tokenInfo.id && "";
 };
 
-function accountPermission(permission) {
-  if (localStorage.getItem("accountData")) {
+function checkPermission( input ) {
+  return tokenInfo.permissions.includes(input);
+};
 
-  }
 
-}
+function getAccountData( apiKey ) {
+  fetch(accountURL + apiKey)
+  .then(res => {
+    if (!res.ok) {
+        throw Error(res.status);
+    }
+    return res.json();
+})
+  .then(data => {
+    localStorage.setItem("accountInfo", JSON.stringify(data));
+  })
+  .catch(err => {
+    console.log("AccountData Error: " + err);
+})
+};
 
-const accountInfo = {
-    "id": `${authToken}`,
-    "name": "All permissions",
-    "permissions": [
-      "tradingpost",
-      "characters",
-      "pvp",
-      "progression",
-      "wallet",
-      "guilds",
-      "builds",
-      "account",
-      "inventories",
-      "unlocks"
-    ]
-}
+function getAccountPermissions( apiKey ) {
+  fetch(tokenURL + apiKey)
+  .then(res => {
+    if (!res.ok) {
+        throw Error(res.status);
+    }
+    return res.json();
+  })
+  .then(data => {
+    data.id = apiKey;
+    localStorage.setItem("tokenInfo", JSON.stringify(data));
+  })
+  .catch(err => {
+    console.log("AccountPermission Error: " + err);
+  })
+};
 
 export {
-    accountInfo
+  checkPermission,
+  getApiKey,
+  getAccountData,
+  getAccountPermissions,
 }

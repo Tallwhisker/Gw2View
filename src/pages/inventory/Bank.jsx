@@ -1,17 +1,21 @@
-import { itemInfo } from "../../data/ItemData";
-import { accountInfo } from "../../data/AccountData";
-import { itemInformationStart } from "../../data/ItemData";
+import { 
+  itemInfo, 
+  itemBlacklist, 
+  itemInformationStart 
+} from "../../data/ItemData";
+
+import { getApiKey, checkPermission } from "../../data/AccountData";
 import Category from "../../components/Category";
 import { useState, useEffect } from "react";
 
 export default function Bank() {
-  if (!accountInfo.permissions.includes("inventories")) {
+  if (checkPermission("inventories")) {
     return <h1>No permission.</h1>
   }
 
   const [content, setContent] = useState([])
   const bankFetch =
-    "https://api.guildwars2.com/v2/account/bank?access_token=" + accountInfo.id;
+    "https://api.guildwars2.com/v2/account/bank?access_token=" + getApiKey();
 
   useEffect(() => {
     fetch(bankFetch)
@@ -32,7 +36,8 @@ export default function Bank() {
               item.charges ? item.charges : item.count
             ]);
 
-            if (!itemInfo[item.id]) {
+            //Check for unknown items not on blacklist
+            if (!itemInfo[item.id] && !itemBlacklist.includes(item.id)) {
               newItems.push(item.id);
             };
           }

@@ -1,8 +1,16 @@
+import { 
+    itemInfo, 
+    itemBlacklist, 
+    itemInformationStart 
+} from "../../data/ItemData";
+import { 
+    checkPermission, 
+    getApiKey
+} from "../../data/AccountData";
+
 import Category from "../../components/Category";
 import DropdownButton from "../../components/dropdownbutton";
-import { accountInfo } from "../../data/AccountData";
 import { useState, useEffect } from "react";
-import { itemInfo } from "../../data/ItemData";
 
 const matStorageCategoryNames = [
     [6, 'Basic Crafting Materials'],
@@ -18,15 +26,16 @@ const matStorageCategoryNames = [
 
 let categoryList = [];
 export default function MaterialStorage() {
-    if (!accountInfo.permissions.includes("inventories")) {
+    if (checkPermission("inventories")) {
         return <h1>No permission.</h1>
     }
 
     const [content, setContent] = useState([])
     const matStorageFetch =
-        "https://api.guildwars2.com/v2/account/materials?access_token=" + accountInfo.id;
-
-    useEffect(() => {
+        "https://api.guildwars2.com/v2/account/materials?access_token=" + getApiKey();
+        
+        
+        useEffect(() => {
         categoryList = [];
 
         fetch(matStorageFetch)
@@ -52,8 +61,8 @@ export default function MaterialStorage() {
                         element.count
                     ]);
 
-                    //Check for unknown items
-                    if (!itemInfo[element.id]) {
+                    //Check for unknown items not on blacklist
+                    if (!itemInfo[element.id] && !itemBlacklist.includes([element.id])) {
                         newItems.push(element.id);
                     };
                 });
