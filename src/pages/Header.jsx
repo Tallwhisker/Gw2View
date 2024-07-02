@@ -1,6 +1,7 @@
 import { Outlet, Link } from "react-router-dom";
 
 export default function Header() {
+    
     return (
         <>
             <nav className="navbar navbar-expand-lg bg-dark border-bottom border-body" data-bs-theme="dark">
@@ -17,20 +18,20 @@ export default function Header() {
                             <li className="nav-item">
                                 <Link className="nav-link disabled" to="">Account</Link>
                             </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <li className="nav-item dropdown">
+                                <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Inventories
                                 </a>
-                                <ul class="dropdown-menu">
+                                <ul className="dropdown-menu">
                                     <li><Link className="dropdown-item" to="../bags">Bags</Link></li>
                                     <li><Link className="dropdown-item" to="../bank">Bank</Link></li>
                                     <li><Link className="dropdown-item" to="../materialstorage">Material Storage</Link></li>
                                 </ul>
                             </li>
-                            <li class="nav-item">
+                            <li className="nav-item">
                                 <Link className="nav-link disabled" to="bltp">Trading Post</Link>
                             </li>
-                            <li class="nav-item">
+                            <li className="nav-item">
                                 <Link className="nav-link disabled" to="search">Search</Link>
                             </li>
                         </ul>

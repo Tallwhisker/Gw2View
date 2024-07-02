@@ -1,24 +1,30 @@
 import { itemInfo } from "../data/ItemData";
 
 
-
 export default function Item( { item } ) {
     const id = item[0];
-    const count = item[1];
+    let count = item[1];
 
     let itemName = `${id}: Unknown`;
     if(itemInfo[id]) {
         itemName = itemInfo[id].name;
     };    
 
+    if (count > 1000) {
+        count = `${count / 1000}k`
+    }
+
     return (
-        <div className="list-group-item p-2 text-center"
-        data-bs-toggle="tooltip" data-bs-placement="top"
+        <div 
+        key={id+count}
+        className="list-group-item p-2 text-center"
+        data-bs-toggle="tooltip" 
+        data-bs-placement="top"
         data-bs-custom-class="custom-tooltip"
         data-bs-title={itemName}
         >
              <ItemIcon itemId={ id } />
-             <p className="text-light">{ count }</p>
+             <p className="text-light mb-2">{ count }</p>
              {/* <ItemName itemId={ id } /> */}
         </div>
     );

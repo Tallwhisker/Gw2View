@@ -1,8 +1,8 @@
 import Category from "../../components/Category";
+import DropdownButton from "../../components/dropdownbutton";
 import { accountInfo } from "../../data/AccountData";
 import { useState, useEffect } from "react";
 import { itemInfo } from "../../data/ItemData";
-
 
 const matStorageCategoryNames = [
     [6, 'Basic Crafting Materials'],
@@ -16,20 +16,19 @@ const matStorageCategoryNames = [
     [38, 'Festive Materials']
 ];
 
-
+let categoryList = [];
 export default function MaterialStorage() {
     if (!accountInfo.permissions.includes("inventories")) {
         return <h1>No permission.</h1>
     }
-
-    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
-    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
 
     const [content, setContent] = useState([])
     const matStorageFetch =
         "https://api.guildwars2.com/v2/account/materials?access_token=" + accountInfo.id;
 
     useEffect(() => {
+        categoryList = [];
+
         fetch(matStorageFetch)
             .then(res => {
                 if (!res.ok) {
@@ -66,17 +65,23 @@ export default function MaterialStorage() {
                 if (newItems.length > 0) {
                     console.log(`MatStorage Module found ${newItems.length} new items`);
                     itemInformationStart(newItems);
+                    setTimeout(refreshSelf(),4000);
                 };
 
                 const newContent = [];
-
                 //ArrayKey 1 = name, ArrayKey 0 = category id
                 matStorageCategoryNames.map(key => {
+                    const encodedName = encodeURIComponent(`MS-${key[0]}`);
+
+                    //Push into list, [0] name , [1] ID
+                    categoryList.push( [ key[1], encodedName ])
+
                     newContent.push(<Category
                         catName={key[1]}
                         catArray={newMatStorage[key[0]]}
-                        catID={`MS-${key[0]}`}
+                        catID={encodedName}
                     />)
+
                 });
                 setContent(newContent);
             })
@@ -84,12 +89,29 @@ export default function MaterialStorage() {
                 console.log("MatStorage Error: " + err);
             })
     }, [])
-
+    if (content == []) {
+        return (
+            <>
+                <section className="d-flex flex-column flex-wrap">
+                    <h3>Loading..</h3>
+                </section>
+            </>
+        );
+    }
     return (
         <>
-            <section className="d-flex justify-content-around flex-wrap">
-                {content}
+            <DropdownButton 
+                input={categoryList}
+                menuName="Categories" 
+            />
+            <section className="d-flex flex-column flex-wrap">
+                    {content}
             </section>
         </>
     );
+
+    function refreshSelf() {
+        const refreshContent = content.slice();
+        setContent(refreshContent);
+    }
 };

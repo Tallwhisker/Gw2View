@@ -9,9 +9,6 @@ export default function Bank() {
     return <h1>No permission.</h1>
   }
 
-  const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
-  const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
-
   const [content, setContent] = useState([])
   const bankFetch =
     "https://api.guildwars2.com/v2/account/bank?access_token=" + accountInfo.id;
@@ -43,6 +40,7 @@ export default function Bank() {
             emptyCount++;
           };
         });
+
         //Save bank data
         bankStorage.unshift(['EmptySlot', emptyCount]);
         localStorage.setItem('bankStorage', JSON.stringify(bankStorage));
@@ -51,18 +49,17 @@ export default function Bank() {
         if (newItems.length > 0) {
           console.log(`Bank Module found ${newItems.length} new items`);
           itemInformationStart(newItems);
+          setTimeout(refreshSelf(),4000);
         };
 
         const newContent = [];
 
-        //ArrayKey 1 = name, ArrayKey 0 = category id
-
+        //Doesn't really need a unique ID since there's only 1
         newContent.push(<Category
           catName={"Bank"}
           catArray={bankStorage}
           catID={`BANK-0`}
         />)
-
         setContent(newContent);
       })
       .catch(err => {
@@ -70,9 +67,22 @@ export default function Bank() {
       })
   }, [])
 
+  if (content == []) {
+    return (
+      <section className="d-flex justify-content-around flex-wrap">
+        <h3>Loading..</h3>
+      </section>
+    ); 
+  }
+
   return (
     <section className="d-flex justify-content-around flex-wrap">
       { content }
     </section>
   );
+
+  function refreshSelf() {
+    const refreshContent = content.slice();
+    setContent(refreshContent);
+  }
 };

@@ -5,7 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* background-color:  var(--bg-light-subtle); */
+  min-height: 100svh;
 }
 
 .categoryHeader {
@@ -18,6 +18,18 @@ body {
 .custom-tooltip {
   --bs-tooltip-bg: var(--bs-gray-800);
   --bs-tooltip-color: var(--bs-white);
+}
+
+#root {
+  min-height: 100svh;
+  position: relative;
+  padding-bottom: 6rem;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 
 .Legendary {

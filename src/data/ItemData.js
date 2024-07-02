@@ -2,12 +2,14 @@ import { startData } from "./startData";
 let itemInfo = getStorageObject("itemInfo");
 
 
-// if (! localStorage.getItem("itemInfo")) {
-//     coldStart();
-// }
+if (! localStorage.getItem("itemInfo")) {
+    coldStart();
+}
 
 function coldStart() {
-    localStorage.setItem("itemInfo", startData);
+    localStorage.setItem("itemInfo", JSON.stringify(startData));
+    itemInfo = startData;
+    console.log("Imported starting data.")
 }
 
 //Item information request controller
@@ -63,6 +65,9 @@ async function fetchItemInfo(items) {
 
     fetch(`https://api.guildwars2.com/v2/items?ids=${items}`)
     .then(response => {
+        if (! response.ok) {
+            throw new Error(response.status);
+        }
         return response.json();
     })
     .then(data => {

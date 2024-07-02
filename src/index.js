@@ -16,7 +16,8 @@ import Bags from './pages/inventory/Bags';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+  <>
+  {/* <React.StrictMode> */}
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Header />}>
@@ -30,7 +31,8 @@ root.render(
       </Routes>
     </BrowserRouter>
     <Footer />
-  </React.StrictMode>
+  {/* </React.StrictMode> */}
+  </>
 );
 
 // If you want to start measuring performance in your app, pass a function
