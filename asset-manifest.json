@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/gw2site-react/static/css/main.2dbe006c.css",
+    "main.js": "/gw2site-react/static/js/main.85ceaf76.js",
+    "static/js/453.861eaf86.chunk.js": "/gw2site-react/static/js/453.861eaf86.chunk.js",
+    "index.html": "/gw2site-react/index.html",
+    "main.2dbe006c.css.map": "/gw2site-react/static/css/main.2dbe006c.css.map",
+    "main.85ceaf76.js.map": "/gw2site-react/static/js/main.85ceaf76.js.map",
+    "453.861eaf86.chunk.js.map": "/gw2site-react/static/js/453.861eaf86.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2dbe006c.css",
+    "static/js/main.85ceaf76.js"
+  ]
+}
