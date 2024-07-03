@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/gw2site-react/static/css/main.2dbe006c.css",
-    "main.js": "/gw2site-react/static/js/main.e9593269.js",
+    "main.js": "/gw2site-react/static/js/main.2360ad8c.js",
     "static/js/453.861eaf86.chunk.js": "/gw2site-react/static/js/453.861eaf86.chunk.js",
     "index.html": "/gw2site-react/index.html",
     "main.2dbe006c.css.map": "/gw2site-react/static/css/main.2dbe006c.css.map",
-    "main.e9593269.js.map": "/gw2site-react/static/js/main.e9593269.js.map",
+    "main.2360ad8c.js.map": "/gw2site-react/static/js/main.2360ad8c.js.map",
     "453.861eaf86.chunk.js.map": "/gw2site-react/static/js/453.861eaf86.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.2dbe006c.css",
-    "static/js/main.e9593269.js"
+    "static/js/main.2360ad8c.js"
   ]
 }
