@@ -10,9 +10,9 @@ import {
 
 import { formatCharacterBags } from "../../data/inventoryFormater";
 
-import Category from "../../components/Category";
 import DropdownButton from "../../components/dropdownbutton";
 import NoPermission from "../../components/NoPermission";
+import Category from "../../components/Category";
 
 const toTop = [["Go to top", "root"], ["------", ""]];
 export default function characterBags() {

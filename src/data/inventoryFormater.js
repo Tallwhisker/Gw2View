@@ -52,14 +52,14 @@ export function formatMaterialStorage( input ) {
     //CategoryList for navigation button
     let categoryList = [["Go to top" , "root"], ["------", ""]];
     let newContent = [];
-
+    
     //ArrayKey 1 = name, ArrayKey 0 = category id
     matStorageCategoryNames.map(key => {
         const encodedName = encodeURIComponent(`MS-${key[0]}`);
-
+        
         //[0] name , [1] encoded name
         categoryList.push( [ key[1], encodedName ]);
-
+        
         //[0] name, [1] itemArray, [2] encoded name
         newContent.push([key[1], newMatStorage[key[0]], encodedName]);
     });
@@ -152,6 +152,9 @@ export function formatBank( inputBank ) {
     if (newItems.length > 0) {
       console.log(`Bank Module found ${newItems.length} new items`);
       itemInformationStart(newItems);
+      setTimeout(() => {
+        return [ "Bank", bankStorage, "BANK-" ];
+      },2000)
     };
 
     //[0] name, [1] itemArray, [2] encoded name

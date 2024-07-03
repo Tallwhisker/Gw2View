@@ -1,0 +1,20 @@
+{
+  "id": "random-numbers-heeey",
+  "name": "Test.1234",
+  "age": 11374080,
+  "world": 2008,
+  "guilds": [],
+  "guild_leader": [],
+  "created": "2015-11-30T16:42:00Z",
+  "access": [
+    "GuildWars2",
+    "HeartOfThorns",
+    "PathOfFire",
+    "EndOfDragons"
+  ],
+  "commander": false,
+  "fractal_level": 24,
+  "daily_ap": 4712,
+  "monthly_ap": 150,
+  "wvw_rank": 207
+}

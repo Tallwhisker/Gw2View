@@ -10,8 +10,8 @@ import {
 
 import { formatBank } from "../../data/inventoryFormater";
 
-import Category from "../../components/Category";
 import NoPermission from "../../components/NoPermission";
+import Category from "../../components/Category";
 
 
 export default function Bank() {

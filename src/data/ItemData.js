@@ -2,9 +2,6 @@ import { startData } from "./startData";
 
 let itemInfo = getStorageObject("itemInfo");
 
-if (! localStorage.getItem("itemInfo")) {
-    coldStart();
-}
 // Because arenanet can't keep track of their own items, implement blacklist.
 const itemBlacklist = [
     83855, //Pearl Impaler (SPEAR)
@@ -22,13 +19,11 @@ function coldStart() {
     localStorage.setItem("itemInfo", JSON.stringify(startData));
     itemInfo = startData;
     console.log("Imported starting data.")
-}
+};
 
 //Item information request controller
 let itemQueueSignal = 0;
 const itemQueue = [];
-
-
 
 //Queue creator, any unknown items go to this function.
 async function itemInformationStart(inputArray) {
