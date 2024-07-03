@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 
 import Header from './pages/Header';
 import Footer from './components/Footer';
-import Home from './pages/Home';
+import Home from './Home';
 import Bltp from './pages/bltp/Bltp';
 import Search from './pages/search/Search';
 import Account from './pages/account';
@@ -22,17 +22,17 @@ root.render(
   {/* <React.StrictMode> */}
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<Header />}>
+        <Route path='' element={<Header />}>
           <Route index element={<Home />}/>
-          <Route path='account' element={<Account />}/>
+          <Route path='/account' element={<Account />}/>
 
           {/* Dropdown menu - Inventories */} 
-          <Route path='materialstorage' element={<MaterialStorage />}/>
-          <Route path='bags' element={<Bags />}/>
-          <Route path='bank' element={<Bank />}/>
+          <Route path='/materialstorage' element={<MaterialStorage />}/>
+          <Route path='/bags' element={<Bags />}/>
+          <Route path='/bank' element={<Bank />}/>
 
-          <Route path='bltp' element={<Bltp />}/>
-          <Route path='search' element={<Search />}/>
+          <Route path='/bltp' element={<Bltp />}/>
+          <Route path='/search' element={<Search />}/>
         </Route>
       </Routes>
     </BrowserRouter>
