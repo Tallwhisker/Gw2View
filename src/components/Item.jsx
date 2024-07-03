@@ -43,11 +43,11 @@ function ItemName({ itemId }) {
 };
 
 function ItemIcon({ itemId }) {
-    let iconURL = "gw2site-react/media/icons/spaghet.png";
+    let iconURL = "./media/icons/spaghet.png";
 
     if (itemInfo[itemId]) {
         if (itemInfo[itemId].localIcon) {
-            iconURL = `gw2site-react/media/icons/${itemInfo[itemId].localIcon}`;
+            iconURL = `./media/icons/${itemInfo[itemId].localIcon}`;
         } 
         else {
             iconURL = itemInfo[itemId].webIcon;
