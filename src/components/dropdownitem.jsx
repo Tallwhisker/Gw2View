@@ -3,7 +3,7 @@ export default function DropdownItem({ name, ID }) {
         <li
             key={ID+ID}
         ><a 
-            class="dropdown-item" 
+            className="dropdown-item" 
             href={`#${ID}`}
         >
             {name}

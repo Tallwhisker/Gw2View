@@ -37,11 +37,12 @@ function apiForm() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        if (apiKey.length < 70) {
-            alert('Key too short, try again');
-        }
-        else if (apiKey == "test") {
+        if (apiKey == "test") {
             //implement testdata
+            
+        } else if (apiKey.length < 70) {
+            alert('Key too short, try again');
+
         } else {
             getAccountData(apiKey);
             getAccountPermissions(apiKey);
@@ -59,10 +60,8 @@ function apiForm() {
                     <input 
                     className="form-control px-5" 
                     id="authToken" 
-                    // placeholder="API Key" 
                     type="text" 
                     value={apiKey}
-                    // name="token"
                     onChange={(e) => setApiKey(e.target.value)}
                     />
                 </div>

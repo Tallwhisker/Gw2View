@@ -1,6 +1,6 @@
 import DropdownItem from "./dropdownitem";
 
-export default function DropdownButton({ input, menuName }) {
+export default function DropdownButton({ input, menuName, classOptions }) {
     let items = [];
     input.forEach(item => {
         items.push(
@@ -15,7 +15,7 @@ export default function DropdownButton({ input, menuName }) {
     <>
         <div 
         key={"key"+menuName}
-        className="btn-group">
+        className={classOptions}>
         <button type="button" 
         className="btn btn-info dropdown-toggle m-2 px-4" 
         data-bs-toggle="dropdown" 

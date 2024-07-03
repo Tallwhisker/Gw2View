@@ -3,7 +3,7 @@ const accountURL = "https://api.guildwars2.com/v2/account?access_token="
 const tokenInfo = JSON.parse(localStorage.getItem("tokenInfo"));
 
 function getApiKey() {
-  return tokenInfo.id && "";
+  return tokenInfo.id ? tokenInfo.id : "";
 };
 
 function checkPermission( input ) {
