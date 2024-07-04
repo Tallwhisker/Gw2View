@@ -16,56 +16,65 @@ import Category from "../../components/Category";
 
 const toTop = [["Go to top", "root"], ["------", ""]];
 export default function characterBags() {
-    const [content, setContent] = useState([toTop, []]);
+    const [ content, setContent ] = useState([]);
+
+    if (!checkPermission("testmode")) {}
 
     if (!checkPermission("characters")) {
         return <NoPermission message="characters" />;
     };
 
-
-    function updateContent(charName) {
-        fetchCharacter(charName)
-        .then(resolved => {
-            const newCharacter = formatCharacterBags(resolved);
-            let newContent = content.filter(() => true);
-
-            newContent[0].push(newCharacter[0]);
-            newContent[1].push(newCharacter[1]);
-            setContent(newContent);
-        })
-    };
-
+    const characters = {};
     useEffect(() => {
-        try {
-            fetchCharacterList()
-            .then(resolved => {
-                //Iterate over the list and get each character
-                resolved.forEach(character => {
-                    updateContent(character);
+    try {
+        fetchCharacterList()
+        .then(resolved => {
+            //Iterate over the list and get each character
+            resolved.forEach(characterName => {
+                fetchCharacter(characterName)
+                .then(resolved => {
+                    if (resolved.flags.includes("Beta")) {
+                        console.log("Beta character ignored.")
+                    } else {
+                        const charName = resolved.name;
+                        characters[charName] = resolved;
+
+                        localStorage.setItem("characters",JSON.stringify(characters));
+                        let newContent = content;
+                        newContent.push(formatCharacterBags(resolved));
+                        setContent([...newContent]);
+                    };
                 })
             })
-            //Catch errors passed up from Fetch functions
-        } catch (err) {
-            console.log("CharacterBags Error: " + err);
-        };
+        })
+        //Catch errors passed up from Fetch functions
+    } catch (err) {
+        console.log("CharacterBags Error: " + err);
+    };
     }, []);
 
-    if (content.length == 0) {
+
+    if (content.length <= 1) {
         return (
             <section className="container p-4">
                 <h3>Loading..</h3>
             </section>
         );
     };
+
+    //[0] name, [1] itemArray, [2] encoded name
     return (
         <section className="container d-flex flex-column align-items-center">
-            <DropdownButton
-                input={content[0]}
+            <DropdownButton 
+                key={"CharactersButton"}
+                input={content}
                 menuName="Characters"
-                classOptions="btn-group align-self-start sticky-top"
+                classOptions="" 
             />
-            {content[1].map(category => {
+            {content.map(category => {
                 return <Category
+                    key={"KeyChar-" + category[2]}
+                    catID={category[2]}
                     input={category}
                 />
             })}
@@ -81,7 +90,7 @@ async function fetchCharacterList() {
 
     const response = await fetch(charactersURL);
     if (!response.ok) {
-        throw Error(response.status);
+        console.log(response.status);
     }
 
     return await response.json();
@@ -95,7 +104,7 @@ async function fetchCharacter(charName) {
 
     const response = await fetch(characterURL);
     if (!response.ok) {
-        throw Error(response.status);
+        console.log(response.status);
     }
 
     return await response.json();

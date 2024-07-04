@@ -1,8 +1,6 @@
 export default function DropdownItem({ name, ID }) {
     return (
-        <li
-            key={ID+ID}
-        ><a 
+        <li><a 
             className="dropdown-item" 
             href={`#${ID}`}
         >

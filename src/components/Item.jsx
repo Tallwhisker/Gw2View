@@ -15,7 +15,6 @@ export default function Item( { item } ) {
 
     return (
         <div 
-        key={id+count}
         className="list-group-item p-2 text-center itemTooltip"
         data-bs-toggle="tooltip" 
         data-bs-placement="top"

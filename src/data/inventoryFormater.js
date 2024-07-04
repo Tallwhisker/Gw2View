@@ -69,9 +69,7 @@ export function formatMaterialStorage( input ) {
 
 
 //Permission check is done at page Bags
-let characters = {};
 export function formatCharacterBags( character ) {
-    characters[character.name] = character;
 
     let newItems = [];
     let emptyCount = 0;
@@ -101,7 +99,7 @@ export function formatCharacterBags( character ) {
 
     //Input the empty slots count into inventory array
     characterBag.unshift( ['EmptySlot', emptyCount] );
-  
+    
     //If any unknown items were found, they get sent to dataHandler module.
     if(newItems.length > 0) {
         console.log(`Character Module found ${newItems.length} new items`);
@@ -109,13 +107,14 @@ export function formatCharacterBags( character ) {
     };
     const encodedName = encodeURIComponent(`CHAR-${character.name}`)
 
-    //[0] name , [1] encoded name
-    const newListItem = [ character.name , encodedName ];
+    // //[0] name , [1] encoded name
+    // const newListItem = [ character.name , encodedName ];
 
     //[0] name, [1] itemArray, [2] encoded name
-    const newCharacter = [ character.name, characterBag, encodedName ];
+    // const newCharacter = [ character.name, characterBag, encodedName ];
 
-    return [ newListItem , newCharacter ];
+    // return newCharacter;
+    return [ character.name, characterBag, encodedName ];
 };
 
 

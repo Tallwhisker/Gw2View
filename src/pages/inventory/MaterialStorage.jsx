@@ -45,14 +45,17 @@ export default function MaterialStorage() {
 
     return (
         <section className="container d-flex flex-column align-items-center">
-            <DropdownButton 
-            input={content[0]}
-            menuName="Categories"
-            classOptions="btn-group align-self-start sticky-top" 
+            <DropdownButton
+                key={"matCategoriesButton"}
+                input={content[0]}
+                menuName="Categories"
+                classOptions="" 
             />
             {content[1].map(category => {
                 return <Category
-                 input={ category } 
+                    key={"KeyMS-" + category[2]}
+                    catID={category[2]} //EncodedName
+                    input={ category } 
                 />
             })}
         </section>
