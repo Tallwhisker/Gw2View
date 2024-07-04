@@ -1,0 +1,723 @@
+{
+  "name": "DemoChar2",
+  "race": "Norn",
+  "gender": "Female",
+  "flags": [],
+  "profession": "Ranger",
+  "level": 80,
+  "guild": "31711B5E-FD4A-EC11-81A8-CDE2AC1EED30",
+  "age": 280627,
+  "created": "2023-08-02T12:39:00Z",
+  "deaths": 12,
+  "crafting": [],
+  "title": 249,
+  "backstory": [
+    "27-126",
+    "7-55",
+    "183-182",
+    "26-121",
+    "25-117"
+  ],
+  "wvw_abilities": [
+    {
+      "id": 26,
+      "rank": 3
+    },
+    {
+      "id": 25,
+      "rank": 3
+    },
+    {
+      "id": 24,
+      "rank": 5
+    },
+    {
+      "id": 10,
+      "rank": 2
+    },
+    {
+      "id": 8,
+      "rank": 2
+    },
+    {
+      "id": 16,
+      "rank": 1
+    },
+    {
+      "id": 19,
+      "rank": 3
+    },
+    {
+      "id": 12,
+      "rank": 4
+    },
+    {
+      "id": 18,
+      "rank": 3
+    },
+    {
+      "id": 17,
+      "rank": 4
+    },
+    {
+      "id": 15,
+      "rank": 1
+    },
+    {
+      "id": 14,
+      "rank": 1
+    }
+  ],
+  "equipment": [
+    {
+      "id": 72145,
+      "slot": "Backpack",
+      "stats": {
+        "id": 1430,
+        "attributes": {
+          "Toughness": 63,
+          "Healing": 40,
+          "BoonDuration": 40
+        }
+      },
+      "binding": "Account",
+      "dyes": [
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "id": 101556,
+      "slot": "Coat",
+      "upgrades": [
+        91501
+      ],
+      "skin": 11593,
+      "stats": {
+        "id": 1363,
+        "attributes": {
+          "Power": 141,
+          "Healing": 101,
+          "BoonDuration": 101
+        }
+      },
+      "binding": "Account",
+      "dyes": [
+        5,
+        382,
+        582,
+        67
+      ]
+    },
+    {
+      "id": 80281,
+      "slot": "Boots",
+      "upgrades": [
+        24842
+      ],
+      "skin": 12054,
+      "stats": {
+        "id": 1363,
+        "attributes": {
+          "Power": 47,
+          "Healing": 34,
+          "BoonDuration": 34
+        }
+      },
+      "binding": "Account",
+      "dyes": [
+        473,
+        76,
+        382,
+        473
+      ]
+    },
+    {
+      "id": 80161,
+      "slot": "Gloves",
+      "upgrades": [
+        24842
+      ],
+      "skin": 11775,
+      "stats": {
+        "id": 1363,
+        "attributes": {
+          "Power": 47,
+          "Healing": 34,
+          "BoonDuration": 34
+        }
+      },
+      "binding": "Account",
+      "dyes": [
+        5,
+        582,
+        5,
+        5
+      ]
+    },
+    {
+      "id": 80296,
+      "slot": "Helm",
+      "upgrades": [
+        24842
+      ],
+      "skin": 12066,
+      "stats": {
+        "id": 1363,
+        "attributes": {
+          "Power": 63,
+          "Healing": 45,
+          "BoonDuration": 45
+        }
+      },
+      "binding": "Account",
+      "dyes": [
+        43,
+        76,
+        5,
+        5
+      ]
+    },
+    {
+      "id": 80252,
+      "slot": "Leggings",
+      "upgrades": [
+        24842
+      ],
+      "skin": 221,
+      "stats": {
+        "id": 1363,
+        "attributes": {
+          "Power": 94,
+          "Healing": 67,
+          "BoonDuration": 67
+        }
+      },
+      "binding": "Account",
+      "dyes": [
+        473,
+        null,
+        382,
+        null
+      ]
+    },
+    {
+      "id": 80145,
+      "slot": "Shoulders",
+      "upgrades": [
+        24842
+      ],
+      "skin": 11628,
+      "stats": {
+        "id": 1363,
+        "attributes": {
+          "Power": 47,
+          "Healing": 34,
+          "BoonDuration": 34
+        }
+      },
+      "binding": "Account",
+      "dyes": [
+        5,
+        382,
+        582,
+        5
+      ]
+    },
+    {
+      "id": 81908,
+      "slot": "Accessory1",
+      "stats": {
+        "id": 1430,
+        "attributes": {
+          "Toughness": 110,
+          "Healing": 74,
+          "BoonDuration": 74
+        }
+      },
+      "binding": "Account"
+    },
+    {
+      "id": 79745,
+      "slot": "Accessory2",
+      "stats": {
+        "id": 1367,
+        "attributes": {
+          "Power": 110,
+          "Healing": 74,
+          "BoonDuration": 74
+        }
+      },
+      "binding": "Account"
+    },
+    {
+      "id": 91234,
+      "slot": "Ring1",
+      "stats": {
+        "id": 1430,
+        "attributes": {
+          "Toughness": 126,
+          "Healing": 85,
+          "BoonDuration": 85
+        }
+      },
+      "binding": "Account"
+    },
+    {
+      "id": 79712,
+      "slot": "Ring2",
+      "stats": {
+        "id": 1430,
+        "attributes": {
+          "Toughness": 126,
+          "Healing": 85,
+          "BoonDuration": 85
+        }
+      },
+      "binding": "Account"
+    },
+    {
+      "id": 95380,
+      "slot": "Amulet",
+      "stats": {
+        "id": 1430,
+        "attributes": {
+          "Toughness": 157,
+          "Healing": 108,
+          "BoonDuration": 108
+        }
+      },
+      "binding": "Account"
+    },
+    {
+      "id": 86561,
+      "slot": "WeaponA1",
+      "upgrades": [
+        24639,
+        74326
+      ],
+      "skin": 11549,
+      "binding": "Account"
+    },
+    {
+      "id": 88487,
+      "slot": "WeaponB1",
+      "upgrades": [
+        44947
+      ],
+      "stats": {
+        "id": 628,
+        "attributes": {
+          "Toughness": 251,
+          "Healing": 179,
+          "BoonDuration": 179
+        }
+      },
+      "binding": "Account"
+    },
+    {
+      "id": 22997,
+      "slot": "Sickle",
+      "binding": "Account"
+    },
+    {
+      "id": 23000,
+      "slot": "Axe",
+      "binding": "Account"
+    },
+    {
+      "id": 23001,
+      "slot": "Pick",
+      "binding": "Account"
+    },
+    {
+      "id": 97730,
+      "slot": "FishingRod",
+      "binding": "Account"
+    },
+    {
+      "id": 96613,
+      "slot": "PowerCore"
+    },
+    {
+      "id": 97535,
+      "slot": "SensoryArray"
+    },
+    {
+      "id": 101513,
+      "slot": "Relic",
+      "binding": "Account"
+    }
+  ],
+  "recipes": [
+    9874,
+    9935,
+    9962,
+    10074,
+    10361,
+    10458,
+    10834,
+    11017,
+    11067,
+    11408,
+    11473,
+    11521,
+    12109,
+    12151,
+    12228,
+    12783
+  ],
+  "training": [],
+  "bags": [
+    {
+      "id": 8932,
+      "size": 20,
+      "inventory": [
+        {
+          "id": 85016,
+          "count": 4
+        },
+        {
+          "id": 84731,
+          "count": 1
+        },
+        {
+          "id": 83008,
+          "count": 1
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "id": 92270,
+      "size": 24,
+      "inventory": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "id": 92307,
+      "size": 28,
+      "inventory": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "id": 8936,
+      "size": 15,
+      "inventory": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "id": 71627,
+          "count": 1,
+          "binding": "Account"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "id": 8936,
+      "size": 15,
+      "inventory": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "id": 75024,
+          "count": 2,
+          "binding": "Account"
+        },
+        null,
+        {
+          "id": 46763,
+          "count": 1,
+          "skin": 11600,
+          "upgrades": [
+            24615,
+            24868
+          ],
+          "upgrade_slot_indices": [
+            0,
+            1
+          ],
+          "binding": "Account"
+        },
+        {
+          "id": 80493,
+          "count": 1,
+          "skin": 10078,
+          "upgrades": [
+            24618,
+            24615
+          ],
+          "upgrade_slot_indices": [
+            0,
+            1
+          ],
+          "binding": "Account",
+          "stats": {
+            "id": 162,
+            "attributes": {
+              "Power": 251,
+              "Toughness": 179,
+              "Vitality": 179
+            }
+          }
+        },
+        {
+          "id": 99842,
+          "count": 4
+        },
+        {
+          "id": 68634,
+          "count": 49
+        },
+        {
+          "id": 99845,
+          "count": 2
+        },
+        {
+          "id": 41569,
+          "count": 22
+        },
+        {
+          "id": 85675,
+          "count": 1,
+          "binding": "Account"
+        }
+      ]
+    }
+  ],
+  "equipment_pvp": {
+    "amulet": null,
+    "rune": null,
+    "sigils": [
+      null,
+      null,
+      null,
+      null
+    ]
+  },
+  "specializations": {
+    "pve": [
+      {
+        "id": 33,
+        "traits": [
+          1086,
+          2032,
+          1094
+        ]
+      },
+      {
+        "id": 25,
+        "traits": [
+          978,
+          964,
+          1697
+        ]
+      },
+      {
+        "id": 55,
+        "traits": [
+          2071,
+          2085,
+          2155
+        ]
+      }
+    ],
+    "pvp": [
+      {
+        "id": 33,
+        "traits": [
+          1086,
+          2032,
+          1094
+        ]
+      },
+      {
+        "id": 25,
+        "traits": [
+          978,
+          964,
+          1697
+        ]
+      },
+      {
+        "id": 55,
+        "traits": [
+          2071,
+          2085,
+          2155
+        ]
+      }
+    ],
+    "wvw": [
+      {
+        "id": 33,
+        "traits": [
+          1086,
+          2032,
+          1094
+        ]
+      },
+      {
+        "id": 25,
+        "traits": [
+          978,
+          964,
+          1697
+        ]
+      },
+      {
+        "id": 55,
+        "traits": [
+          2071,
+          2085,
+          2155
+        ]
+      }
+    ]
+  },
+  "skills": {
+    "pve": {
+      "heal": 31914,
+      "utilities": [
+        12631,
+        12502,
+        12495
+      ],
+      "elite": 12569,
+      "pets": {
+        "terrestrial": [
+          23,
+          57
+        ],
+        "aquatic": [
+          19,
+          27
+        ]
+      }
+    },
+    "pvp": {
+      "heal": 31914,
+      "utilities": [
+        12631,
+        12502,
+        12495
+      ],
+      "elite": 12569,
+      "pets": {
+        "terrestrial": [
+          23,
+          57
+        ],
+        "aquatic": [
+          19,
+          27
+        ]
+      }
+    },
+    "wvw": {
+      "heal": 31914,
+      "utilities": [
+        12631,
+        12502,
+        12495
+      ],
+      "elite": 12569,
+      "pets": {
+        "terrestrial": [
+          23,
+          57
+        ],
+        "aquatic": [
+          19,
+          27
+        ]
+      }
+    }
+  }
+}
