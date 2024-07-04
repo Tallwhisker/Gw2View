@@ -5,7 +5,8 @@ import {
 
 import { 
     checkPermission, 
-    getApiKey 
+    getApiKey,
+    isDemoMode
 } from "../../data/AccountData";
 
 import { formatMaterialStorage } from "../../data/inventoryFormater";
@@ -18,7 +19,8 @@ import Category from "../../components/Category";
 export default function MaterialStorage() {
     const [content, setContent] = useState([]);
 
-    if (!checkPermission("inventories")) {
+
+    if (!checkPermission("inventories") && !isDemoMode) {
         return <NoPermission message="inventories" />;
     }
 
@@ -42,20 +44,21 @@ export default function MaterialStorage() {
             </>
         );
     };
-
+    
+    //[0] name, [1] itemArray, [2] encoded name
     return (
         <section className="container d-flex flex-column align-items-center">
             <DropdownButton
                 key={"matCategoriesButton"}
-                input={content[0]}
+                input={content}
                 menuName="Categories"
                 classOptions="" 
             />
-            {content[1].map(category => {
+            {content.map(category => {
                 return <Category
                     key={"KeyMS-" + category[2]}
-                    catID={category[2]} //EncodedName
-                    input={ category } 
+                    catID={category[2]} 
+                    input={category} 
                 />
             })}
         </section>
@@ -63,9 +66,11 @@ export default function MaterialStorage() {
 };
 
 async function fetchMaterialStorage() {
-    const matStorageURL =
+    let matStorageURL =
         "https://api.guildwars2.com/v2/account/materials?access_token="
         + getApiKey();
+
+    if (isDemoMode) matStorageURL = "./testdata/demo_materials.json";
 
     const response = await fetch(matStorageURL)
     if (!response.ok) {

@@ -2,6 +2,7 @@
   "id": "testmode",
   "name": "Demo Mode",
   "permissions": [
-    "testmode"
+    "testmode",
+    "account"
   ]
 }

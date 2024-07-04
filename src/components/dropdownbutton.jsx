@@ -1,18 +1,30 @@
 import DropdownItem from "./dropdownitem";
 
 export default function DropdownButton({ input, menuName, classOptions }) {
-    console.log(input);
 
-        let items = [];
-        input.forEach(item => {
-            items.push(
-                <DropdownItem 
-                key={`${menuName}-${item[2]}`}
-                name = {item[0]}
-                ID = {item[2]}
-                />
-            );
-        });
+    //Entries to go back up
+    let items = [
+    <DropdownItem 
+        key={`${menuName}-GoTop`}
+        name = "Go to top"
+        ID = ""
+    />,
+    <DropdownItem 
+        key={`${menuName}-Divider`}
+        name = "--------"
+        ID = ""
+    />,
+    ];
+
+    input.forEach(item => {
+        items.push(
+            <DropdownItem 
+            key={`${menuName}-${item[2]}`}
+            name = {item[0]}
+            ID = {item[2]}
+            />
+        );
+    });
 
     return (
     <>
@@ -26,17 +38,7 @@ export default function DropdownButton({ input, menuName, classOptions }) {
             {menuName}
         </button>
             <ul className="dropdown-menu">
-                { items }
-                {/* { input.map((item) => {
-                    return (
-                        <li key={item[1]+input.indexOf(item[1])}><a 
-                            className="dropdown-item" 
-                            href={`#${item[1]}`}
-                        >
-                            {item[0]}
-                        </a></li>
-                    );
-                })} */}
+                {items}
             </ul>
         </div>
     </>

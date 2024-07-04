@@ -10,21 +10,21 @@ import {
 export default function Account() {
     const [ isValid, setValid ] = useState(checkPermission("account"));
 
-    if (isValid) {
+    // if (isValid) {
         return (
             <section className="container d-flex flex-column align-items-center">
                 <AccountName />
                 {apiForm(setValid)}
             </section>
         );
-    }
-    return (
-        <>
-        <section className="container d-flex flex-column align-items-center">
-            {apiForm(setValid)}
-        </section>
-        </>
-    );
+    // }
+    // return (
+    //     <>
+    //     <section className="container d-flex flex-column align-items-center">
+    //         {apiForm(setValid)}
+    //     </section>
+    //     </>
+    // );
 };
 
 function apiForm(setValid) {
@@ -34,7 +34,10 @@ function apiForm(setValid) {
         event.preventDefault();
         if (apiKey == "testmode") {
             alert('Not yet implemented.');
-            //implement testdata
+            getAccountData(apiKey);
+            getAccountPermissions(apiKey);
+            coldStart();
+            setTimeout(() => {setValid(true)},1000);
             
         } else if (apiKey.length < 70) {
             alert('Key too short, try again');
@@ -47,7 +50,7 @@ function apiForm(setValid) {
                         getAccountData(apiKey);
                         getAccountPermissions(apiKey);
                         coldStart();
-                        setTimeout(() => {setValid(true)},1000)
+                        setTimeout(() => {setValid(true)},1000);
                         return;
                     };
 
@@ -75,9 +78,15 @@ function apiForm(setValid) {
                 onChange={(e) => setApiKey(e.target.value)}
                 />
             </div>
-            <button 
-            type="submit" 
-            className="btn btn-primary">Submit</button>
+            <div className="d-flex justify-content-between">
+                <button 
+                type="submit" 
+                className="btn btn-primary"
+                >
+                    Submit
+                </button>
+                <ResetData setValid={setValid} />
+            </div>
         </form>
     );
 };
@@ -102,4 +111,44 @@ function AccountName() {
             </h3>
         );
     } else return ;
+};
+
+function ResetData({setValid}) {
+    function Reset() {
+        localStorage.clear();
+        setValid(() => false)
+    }
+
+    return (
+        <>
+        <button type="button" class="btn btn-warning" 
+        data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Reset data
+        </button>
+        <div class="modal fade" id="exampleModal" tabindex="-1" 
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Reset Data?</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" 
+                aria-label="Close"></button>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" 
+                data-bs-dismiss="modal">
+                    Abort Mission!
+                </button>
+
+                <button type="button" class="btn btn-danger"
+                data-bs-dismiss="modal" onClick={() => {Reset()}}>
+                    RESET
+                </button>
+            </div>
+            </div>
+        </div>
+        </div>
+        </>
+
+    );
 }

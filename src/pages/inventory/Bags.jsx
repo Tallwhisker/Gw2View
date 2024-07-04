@@ -5,7 +5,8 @@ import {
 
 import {
     checkPermission,
-    getApiKey
+    getApiKey,
+    isDemoMode
 } from "../../data/AccountData";
 
 import { formatCharacterBags } from "../../data/inventoryFormater";
@@ -14,13 +15,10 @@ import DropdownButton from "../../components/dropdownbutton";
 import NoPermission from "../../components/NoPermission";
 import Category from "../../components/Category";
 
-const toTop = [["Go to top", "root"], ["------", ""]];
 export default function characterBags() {
     const [ content, setContent ] = useState([]);
 
-    if (!checkPermission("testmode")) {}
-
-    if (!checkPermission("characters")) {
+    if (!checkPermission("characters") && !isDemoMode) {
         return <NoPermission message="characters" />;
     };
 
@@ -34,6 +32,7 @@ export default function characterBags() {
                 fetchCharacter(characterName)
                 .then(resolved => {
                     if (resolved.flags.includes("Beta")) {
+                        //We don't want Beta characters
                         console.log("Beta character ignored.")
                     } else {
                         const charName = resolved.name;
@@ -52,7 +51,6 @@ export default function characterBags() {
         console.log("CharacterBags Error: " + err);
     };
     }, []);
-
 
     if (content.length <= 1) {
         return (
@@ -82,8 +80,15 @@ export default function characterBags() {
     );
 };
 
+const demo_characters = [
+    "./testdata/demo_char1.json",
+    "./testdata/demo_char2.json",
+    "./testdata/demo_char3.json"
+];
 
 async function fetchCharacterList() {
+    if (isDemoMode) return demo_characters;
+
     const charactersURL =
         "https://api.guildwars2.com/v2/characters?access_token="
         + getApiKey();
@@ -98,9 +103,11 @@ async function fetchCharacterList() {
 
 async function fetchCharacter(charName) {
     const URIname = (encodeURIComponent(charName));
-    const characterURL =
+    let characterURL =
         `https://api.guildwars2.com/v2/characters/${URIname}?access_token=`
         + getApiKey();
+
+    if (isDemoMode) characterURL = charName;
 
     const response = await fetch(characterURL);
     if (!response.ok) {

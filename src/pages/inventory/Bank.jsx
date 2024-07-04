@@ -5,7 +5,8 @@ import {
 
 import {
     checkPermission,
-    getApiKey
+    getApiKey,
+    isDemoMode
 } from "../../data/AccountData";
 
 import { formatBank } from "../../data/inventoryFormater";
@@ -17,7 +18,7 @@ import Category from "../../components/Category";
 export default function Bank() {
     const [content, setContent] = useState([]);
 
-    if (!checkPermission("inventories")) {
+    if (!checkPermission("inventories") && !isDemoMode) {
         return <NoPermission message="inventories" />;
     }
 
@@ -50,9 +51,10 @@ export default function Bank() {
 };
 
 async function fetchBank() {
-    const bankFetch =
+    let bankFetch =
         "https://api.guildwars2.com/v2/account/bank?access_token="
         + getApiKey();
+    if (isDemoMode) bankFetch = "./testdata/demo_bank.json";
 
     const response = await fetch(bankFetch);
     if (!response.ok) {

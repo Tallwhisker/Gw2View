@@ -1,6 +1,6 @@
 {
   "id": "random-numbers-heeey",
-  "name": "Test.1234",
+  "name": "TestMode",
   "age": 11374080,
   "world": 2008,
   "guilds": [],
@@ -12,7 +12,7 @@
     "PathOfFire",
     "EndOfDragons"
   ],
-  "commander": false,
+  "commander": true,
   "fractal_level": 24,
   "daily_ap": 4712,
   "monthly_ap": 150,

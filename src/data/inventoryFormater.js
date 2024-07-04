@@ -48,23 +48,16 @@ export function formatMaterialStorage( input ) {
         console.log(`MatStorage Module found ${newItems.length} new items`);
         itemInformationStart(newItems);
     };
-
-    //CategoryList for navigation button
-    let categoryList = [["Go to top" , "root"], ["------", ""]];
-    let newContent = [];
     
-    //ArrayKey 1 = name, ArrayKey 0 = category id
+    let newContent = [];
+    //[0] name, [1] itemArray, [2] encoded name
     matStorageCategoryNames.map(key => {
         const encodedName = encodeURIComponent(`MS-${key[0]}`);
-        
-        //[0] name , [1] encoded name
-        categoryList.push( [ key[1], encodedName ]);
-        
-        //[0] name, [1] itemArray, [2] encoded name
+
         newContent.push([key[1], newMatStorage[key[0]], encodedName]);
     });
 
-    return [ categoryList , newContent ];
+    return newContent ;
 };
 
 
@@ -107,13 +100,6 @@ export function formatCharacterBags( character ) {
     };
     const encodedName = encodeURIComponent(`CHAR-${character.name}`)
 
-    // //[0] name , [1] encoded name
-    // const newListItem = [ character.name , encodedName ];
-
-    //[0] name, [1] itemArray, [2] encoded name
-    // const newCharacter = [ character.name, characterBag, encodedName ];
-
-    // return newCharacter;
     return [ character.name, characterBag, encodedName ];
 };
 
