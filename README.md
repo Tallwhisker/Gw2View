@@ -57,7 +57,7 @@ Requires input in [ CategoryName , ItemArray, URIname ] format. (Which is what t
 Container with a H3 title that triggers a collapsible grid container for Items.
 Each Item element checks against the **itemInfo** variable for item data via the provided item ID.
 
-### DropdownButton, DropdownItem
+### DropdownButton > DropdownItem
 Takes the same input as Category and creates a dropdown-button for navigating to the different categories.
 Used where there's more than one category.
 

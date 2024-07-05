@@ -11,7 +11,6 @@ import Bltp from './pages/bltp/Bltp';
 import Search from './pages/search/Search';
 import Account from './pages/account';
 
-
 import MaterialStorage from './pages/inventory/MaterialStorage';
 import Bank from './pages/inventory/Bank';
 import Bags from './pages/inventory/Bags';
@@ -24,15 +23,15 @@ root.render(
       <Routes>
         <Route path='/' element={<Header />}>
           <Route index element={<Home />}/>
-          <Route path='account' element={<Account />}/>
+          <Route path='/account' element={<Account />}/>
 
           {/* Dropdown menu - Inventories */} 
-          <Route path='materialstorage' element={<MaterialStorage />}/>
-          <Route path='bags' element={<Bags />}/>
-          <Route path='bank' element={<Bank />}/>
+          <Route path='/materialstorage' element={<MaterialStorage />}/>
+          <Route path='/bags' element={<Bags />}/>
+          <Route path='/bank' element={<Bank />}/>
 
-          <Route path='bltp' element={<Bltp />}/>
-          <Route path='search' element={<Search />}/>
+          <Route path='/bltp' element={<Bltp />}/>
+          <Route path='/search' element={<Search />}/>
         </Route>
       </Routes>
     </BrowserRouter>
