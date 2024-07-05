@@ -33,7 +33,6 @@ function apiForm(setValid) {
     const handleSubmit = (event) => {
         event.preventDefault();
         if (apiKey == "testmode") {
-            alert('Not yet implemented.');
             getAccountData(apiKey);
             getAccountPermissions(apiKey);
             coldStart();
