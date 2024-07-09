@@ -1,7 +1,7 @@
 {
-  "name": "gw2site-react",
+  "name": "gw2view",
   "version": "0.1.0",
-  "homepage": "https://kevinrickardsson.se/gw2view",
+  "homepage": "https://kevinrickardsson.se/Gw2View",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
