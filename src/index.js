@@ -19,7 +19,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <>
   {/* <React.StrictMode> */}
-    <BrowserRouter basename="/gw2site-react">
+    <BrowserRouter basename="/gw2view">
       <Routes>
         <Route path='/' element={<Header />}>
           <Route index element={<Home />}/>
